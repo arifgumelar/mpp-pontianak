@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPP Kota Pontianak - Mal Pelayanan Publik | Pelayanan Terpadu Prima</title>
+  <meta name="description" content="MPP Kota Pontianak hadir untuk memberikan pelayanan publik terpadu berbasis TRUST: Transparency, Responsibility, Upright, Sustainable, Technology. Satu atap, banyak layanan untuk warga Kota Pontianak." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
+          colors: {
+            primary: {
+              50:"#eef9f6",100:"#d5f0e8",200:"#aee1d2",
+              300:"#7ecab8",400:"#50ae9c",500:"#329282",
+              600:"#236e62",700:"#1d5c52",800:"#194a43",900:"#163d37"
+            },
+            navy:{700:"#1e3a5f",800:"#16304f",900:"#0f2340"}
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:"Plus Jakarta Sans",sans-serif}
+    #navbar{transition:all .3s ease}
+    #navbar.scrolled{background:rgba(255,255,255,.98)!important;backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,.1)}
+    #navbar.scrolled .nav-link{color:#1d5c52!important}
+    #navbar .nav-logo-img{filter:brightness(0) invert(1);transition:filter .3s ease}
+    #navbar.scrolled .nav-logo-img{filter:none}
+    #navbar.scrolled .nav-logo-text{color:#1d5c52!important}
+    #navbar.scrolled .nav-logo-sub{color:#236e62!important}
+    .hero-section{position:relative;overflow:hidden;background:#0f2340}
+    .hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,28,54,.92) 0%,rgba(15,40,60,.82) 40%,rgba(9,50,40,.55) 70%,rgba(9,50,40,.2) 100%);z-index:1}
+    .hero-overlay-bottom{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(10,28,54,.7) 0%,transparent 100%);z-index:1}
+    .hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(50,146,130,.25) 0%,transparent 70%);border-radius:50%;top:-100px;right:-100px;animation:pulseSoft 4s ease-in-out infinite;z-index:2}
+    @keyframes pulseSoft{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.1);opacity:.5}}
+    .hero-img-frame{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.12);transform:perspective(900px) rotateY(-4deg) rotateX(2deg);transition:transform .5s ease}
+    .hero-img-frame:hover{transform:perspective(900px) rotateY(0deg) rotateX(0deg)}
+    .hero-img-frame img{display:block;width:100%;height:380px;object-fit:cover;object-position:center}
+    .hero-img-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(10,30,50,.7) 100%);pointer-events:none}
+    .hero-badge{position:absolute;background:rgba(255,255,255,.12);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:.6rem 1rem;color:#fff;display:flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:blink 2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+    .glass-card{background:rgba(255,255,255,.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:16px}
+    .service-card{transition:transform .3s ease,box-shadow .3s ease}
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(35,110,98,.2)}
+    .facility-tab{transition:all .2s ease;cursor:pointer}
+    .facility-tab:hover{background-color:#d5f0e8}
+    .facility-tab.active{background:linear-gradient(135deg,#236e62,#329282);color:white}
+    .facility-tab.active .facility-icon{color:white!important}
+    .agency-card{transition:transform .3s ease,box-shadow .3s ease}
+    .agency-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(35,110,98,.15)}
+    .testimonial-slider{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+    .testimonial-slider::-webkit-scrollbar{display:none}
+    .testimonial-card{scroll-snap-align:start;flex:0 0 320px}
+    .complaint-card{transition:all .3s ease;border:2px solid transparent}
+    .complaint-card:hover{border-color:#329282;transform:translateY(-4px);box-shadow:0 12px 40px rgba(50,146,130,.15)}
+    .scroll-reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+    .scroll-reveal.visible{opacity:1;transform:translateY(0)}
+    .gradient-text{background:linear-gradient(135deg,#236e62,#50ae9c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .progress-bar{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden}
+    .progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#236e62,#50ae9c);transition:width 1.5s ease;width:0}
+    #mobile-menu{transition:all .3s ease;max-height:0;overflow:hidden}
+    #mobile-menu.open{max-height:500px}
+    .slider-track{display:flex;gap:1.5rem;transition:transform .4s ease}
+    .carousel-wrapper{overflow:hidden}
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 bg-transparent">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <img src="assets/images/logo.png" alt="Logo MPP Kota Pontianak" class="nav-logo-img h-11 w-auto" />
+      <div class="hidden sm:block">
+        <div class="nav-logo-text font-extrabold text-white text-sm leading-tight tracking-wide">Mal Pelayanan Publik</div>
+        <div class="nav-logo-sub text-white/70 text-xs leading-tight font-semibold tracking-wider uppercase">Kota Pontianak</div>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a href="#beranda" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">Beranda</a>
+      <div class="relative group">
+        <a href="#profil" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm flex items-center gap-1">Profil <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i></a>
+        <div class="absolute top-full left-0 mt-1 w-44 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 py-2">
+          <a href="#profil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition font-medium">Tentang MPP</a>
+          <a href="#video-profil" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition font-medium"><i class="fa-solid fa-circle-play text-green-500"></i> Video Profil</a>
+        </div>
+      </div>
+      <a href="#layanan" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">Layanan</a>
+      <a href="#instansi" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">Instansi</a>
+      <a href="#statistik" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">Statistik</a>
+      <a href="#skm" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">SKM</a>
+      <a href="#faq" class="nav-link text-white/90 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 transition font-medium text-sm">FAQ</a>
+    </div>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="#kontak" class="bg-white/20 backdrop-blur text-white border border-white/30 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-white hover:text-primary-700 transition">Hubungi Kami</a>
+    </div>
+    <button id="menu-toggle" class="lg:hidden text-white text-2xl" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+    </button>
+  </div>
+  <div id="mobile-menu" class="lg:hidden mt-2 rounded-2xl overflow-hidden bg-white/10 backdrop-blur border border-white/20">
+    <div class="flex flex-col p-4 gap-1">
+      <a href="#beranda" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">Beranda</a>
+      <div class="flex flex-col">
+        <div class="text-white font-medium py-2 px-4 rounded-lg">Profil</div>
+        <div class="flex flex-col pl-4 border-l border-white/10 ml-4 space-y-1">
+          <a href="#profil" class="text-white/80 font-medium py-1.5 px-4 rounded-lg hover:bg-white/10 text-sm" onclick="toggleMenu()">Tentang MPP</a>
+          <a href="#video-profil" class="text-white/80 font-medium py-1.5 px-4 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2" onclick="toggleMenu()"><i class="fa-solid fa-circle-play text-green-400"></i> Video Profil</a>
+        </div>
+      </div>
+      <a href="#layanan" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">Layanan</a>
+      <a href="#instansi" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">Instansi</a>
+      <a href="#statistik" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">Statistik</a>
+      <a href="#skm" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">SKM</a>
+      <a href="#faq" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white/10" onclick="toggleMenu()">FAQ</a>
+      <a href="#kontak" class="bg-green-400 text-green-900 font-bold text-center py-2 px-4 rounded-lg mt-2" onclick="toggleMenu()">Hubungi Kami</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="beranda" class="hero-section min-h-screen flex items-center pt-24 pb-16 relative">
+  <!-- Background photo -->
+  <img src="assets/images/gedung-mpp.png" alt="Gedung MPP Kota Pontianak" class="hero-bg-img" />
+  <!-- Overlays -->
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-bottom"></div>
+  <div class="hero-glow"></div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT: Text -->
+      <div>
+        <div class="inline-flex items-center gap-2 glass-card px-4 py-2 text-white/90 text-sm font-semibold mb-6">
+          <span class="hero-badge-dot"></span>Pelayanan Aktif Hari Ini
+        </div>
+        <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+          MPP <span style="color:#6ee7b7">Kota Pontianak</span>
+        </h1>
+        <p class="text-base font-semibold mb-3 tracking-wider" style="color:rgba(110,231,183,.85)">Transparency &middot; Responsibility &middot; Upright &middot; Sustainable &middot; Technology</p>
+        <p class="text-white/75 text-base leading-relaxed mb-8 max-w-lg">Mal Pelayanan Publik Kota Pontianak &ndash; satu atap, banyak layanan, kepuasan utama. Hadir untuk memberikan pelayanan publik prima, transparan, dan berbasis teknologi bagi seluruh warga Kota Pontianak.</p>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#layanan" class="flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl transition shadow-lg" style="background:#4ade80;color:#052e16;">
+            <i class="fa-solid fa-list-check"></i> Lihat Layanan
+          </a>
+          <a href="#profil" class="glass-card text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/20 transition flex items-center gap-2">
+            <i class="fa-solid fa-circle-info"></i> Tentang MPP
+          </a>
+        </div>
+        <!-- Stats row -->
+        <div class="flex flex-wrap gap-0">
+          <div class="pr-8">
+            <div class="text-3xl font-extrabold text-white" id="hero-stat-1">0</div>
+            <div class="text-white/55 text-sm mt-0.5">Instansi Tergabung</div>
+          </div>
+          <div class="w-px bg-white/20 mx-2 self-stretch"></div>
+          <div class="px-8">
+            <div class="text-3xl font-extrabold text-white" id="hero-stat-2">0</div>
+            <div class="text-white/55 text-sm mt-0.5">Jenis Layanan</div>
+          </div>
+          <div class="w-px bg-white/20 mx-2 self-stretch"></div>
+          <div class="pl-8">
+            <div class="text-3xl font-extrabold text-white" id="hero-stat-3">0</div>
+            <div class="text-white/55 text-sm mt-0.5">Loket Aktif</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Building image card -->
+      <div class="relative hidden lg:flex flex-col items-center">
+        <!-- Framed photo of the building -->
+        <div class="hero-img-frame w-full">
+          <img src="assets/images/gedung-mpp.png" alt="Gedung MPP Kota Pontianak" />
+          <!-- Caption overlay -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:1.25rem 1.5rem;z-index:2;">
+            <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(110,231,183,.9);margin-bottom:.25rem;">Gedung MPP</div>
+            <div style="font-size:1rem;font-weight:800;color:#fff;">Mal Pelayanan Publik Kota Pontianak</div>
+          </div>
+        </div>
+
+        <!-- Floating badge: Jam Pelayanan -->
+        <div class="hero-badge" style="position:absolute;top:-18px;left:-20px;">
+          <div style="width:36px;height:36px;background:rgba(74,222,128,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fa-solid fa-clock" style="color:#4ade80;font-size:1rem;"></i>
+          </div>
+          <div>
+            <div style="font-size:.75rem;font-weight:700;color:#fff;">Jam Pelayanan</div>
+            <div style="font-size:.68rem;color:rgba(255,255,255,.65);font-weight:500;">Sen–Kam 08.00–15.30 &bull; Jum 08.00–11.30</div>
+          </div>
+        </div>
+
+        <!-- Floating badge: SKM -->
+        <div class="hero-badge" style="position:absolute;top:56px;right:-22px;flex-direction:column;align-items:flex-start;gap:.25rem;padding:.8rem 1rem;">
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <i class="fa-solid fa-star" style="color:#fbbf24;font-size:.85rem;"></i>
+            <span style="font-size:.7rem;color:rgba(255,255,255,.7);font-weight:600;">Indeks Kepuasan</span>
+          </div>
+          <div style="font-size:1.6rem;font-weight:900;color:#fbbf24;line-height:1;">90.12</div>
+          <div style="font-size:.65rem;color:rgba(255,255,255,.55);">Sangat Baik &bull; 11.885 Responden</div>
+        </div>
+
+        <!-- Floating badge: Loket -->
+        <div style="position:absolute;bottom:-18px;right:16px;background:linear-gradient(135deg,#4ade80,#059669);border-radius:16px;padding:.8rem 1.2rem;display:flex;align-items:center;gap:.7rem;box-shadow:0 8px 32px rgba(74,222,128,.4);">
+          <div style="font-size:2rem;font-weight:900;color:#052e16;line-height:1;">24</div>
+          <div>
+            <div style="font-size:.72rem;font-weight:700;color:#052e16;">Loket Aktif</div>
+            <div style="font-size:.65rem;color:rgba(5,46,22,.7);">Siap Melayani</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="bg-gradient-to-r from-primary-700 to-primary-600 py-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+      <div class="text-white"><div class="text-2xl font-black text-green-300">T</div><div class="text-sm font-semibold">Transparency</div></div>
+      <div class="text-white"><div class="text-2xl font-black text-green-300">R</div><div class="text-sm font-semibold">Responsibility</div></div>
+      <div class="text-white"><div class="text-2xl font-black text-green-300">U</div><div class="text-sm font-semibold">Upright</div></div>
+      <div class="text-white"><div class="text-2xl font-black text-green-300">S</div><div class="text-sm font-semibold">Sustainable</div></div>
+      <div class="text-white col-span-2 md:col-span-1"><div class="text-2xl font-black text-green-300">T</div><div class="text-sm font-semibold">Technology</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil" class="py-20 bg-gradient-to-b from-green-50 to-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT: Text -->
+      <div class="scroll-reveal">
+        <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Tentang Kami</span>
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">Memberikan Pelayanan Publik <span class="gradient-text">Berbasis TRUST</span></h2>
+        <p class="text-gray-600 text-base leading-relaxed mb-6"><strong class="text-primary-700">Mal Pelayanan Publik (MPP) Kota Pontianak</strong> merupakan tempat berlangsungnya kegiatan pelayanan publik atas berbagai jenis pelayanan dari instansi pemerintah pusat, pemerintah daerah, BUMN, BUMD, dan swasta secara terpadu di Kota Pontianak.</p>
+        <p class="text-gray-600 text-base leading-relaxed mb-8">Dengan motto <em>"Kanda Dinda &ndash; Kami Ada Untuk Anda"</em>, kami berkomitmen menghadirkan layanan yang berdedikasi, berintegritas, dan akuntabel untuk seluruh lapisan masyarakat.</p>
+        <div class="flex gap-4 flex-wrap">
+          <div class="flex items-center gap-3 bg-primary-50 rounded-xl p-4">
+            <i class="fa-solid fa-shield-halved text-primary-600 text-xl"></i>
+            <div><div class="font-bold text-primary-800 text-sm">Terpercaya</div><div class="text-gray-500 text-xs">Layanan Terverifikasi</div></div>
+          </div>
+          <div class="flex items-center gap-3 bg-primary-50 rounded-xl p-4">
+            <i class="fa-solid fa-users text-primary-600 text-xl"></i>
+            <div><div class="font-bold text-primary-800 text-sm">Inklusif</div><div class="text-gray-500 text-xs">Untuk Semua Kalangan</div></div>
+          </div>
+          <div class="flex items-center gap-3 bg-primary-50 rounded-xl p-4">
+            <i class="fa-solid fa-bolt text-primary-600 text-xl"></i>
+            <div><div class="font-bold text-primary-800 text-sm">Efisien</div><div class="text-gray-500 text-xs">Cepat &amp; Tepat Waktu</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo + Visi/Misi -->
+      <div class="scroll-reveal relative">
+        <!-- Main photo frame -->
+        <div style="position:relative;border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(35,110,98,.18),0 0 0 1px rgba(35,110,98,.08);">
+          <img src="assets/images/pelayanan.png" alt="Suasana Pelayanan MPP Kota Pontianak" style="width:100%;height:400px;object-fit:cover;object-position:center;display:block;" />
+          <!-- Gradient overlay bottom -->
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(15,40,60,.75) 100%);pointer-events:none;"></div>
+          <!-- Caption bottom -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;">
+            <div style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(110,231,183,.9);margin-bottom:.2rem;">Suasana Pelayanan</div>
+            <div style="font-size:.95rem;font-weight:800;color:#fff;">Petugas MPP Kota Pontianak siap melayani dengan sepenuh hati</div>
+          </div>
+        </div>
+
+        <!-- Floating motto badge -->
+        <div style="position:absolute;top:-16px;right:-16px;background:linear-gradient(135deg,#1d5c52,#329282);border-radius:16px;padding:.8rem 1.1rem;box-shadow:0 8px 28px rgba(35,110,98,.35);max-width:170px;">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(110,231,183,.85);margin-bottom:.2rem;">Motto Kami</div>
+          <div style="font-size:.82rem;font-weight:800;color:#fff;line-height:1.3;">"Kanda Dinda — Kami Ada Untuk Anda"</div>
+        </div>
+
+        <!-- Visi & Misi cards side by side below photo -->
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="bg-white rounded-2xl p-5 shadow-md border-t-4 border-primary-500 hover:shadow-lg transition">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center shrink-0"><i class="fa-solid fa-eye text-primary-600 text-sm"></i></div>
+              <span class="font-bold text-gray-900 text-sm">Visi</span>
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">Pelayanan publik prima, transparan, dan akuntabel dalam satu atap.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 shadow-md border-t-4 border-green-400 hover:shadow-lg transition">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center shrink-0"><i class="fa-solid fa-bullseye text-green-600 text-sm"></i></div>
+              <span class="font-bold text-gray-900 text-sm">Misi</span>
+            </div>
+            <ul class="text-gray-500 text-xs space-y-1">
+              <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-green-500 mt-0.5 shrink-0 text-xs"></i>Layanan terpadu satu atap</li>
+              <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-green-500 mt-0.5 shrink-0 text-xs"></i>Kualitas &amp; kecepatan prima</li>
+              <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-green-500 mt-0.5 shrink-0 text-xs"></i>Inovasi berbasis teknologi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- VIDEO PROFIL -->
+<section id="video-profil" class="py-20 relative overflow-hidden" style="background:linear-gradient(135deg,#0f2340 0%,#1d5c52 50%,#0f2340 100%)">
+  <!-- Decorative background elements -->
+  <div style="position:absolute;top:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(50,146,130,.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.5) 40px,rgba(255,255,255,.5) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.5) 40px,rgba(255,255,255,.5) 41px);pointer-events:none;"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12 scroll-reveal">
+      <div class="inline-flex items-center gap-2 mb-4" style="background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.25);border-radius:99px;padding:.4rem 1.2rem;">
+        <span style="width:8px;height:8px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;display:inline-block;animation:blink 2s ease-in-out infinite;"></span>
+        <span style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;">Video Profil Resmi</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
+        Mengenal <span style="background:linear-gradient(135deg,#4ade80,#6ee7b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">MPP Kota Pontianak</span>
+      </h2>
+      <p class="text-white/60 max-w-2xl mx-auto text-base leading-relaxed">Saksikan langsung bagaimana Mal Pelayanan Publik Kota Pontianak hadir memberikan layanan prima, modern, dan terpadu untuk seluruh warga kota.</p>
+    </div>
+
+    <!-- Video Container -->
+    <div class="scroll-reveal">
+      <div id="video-wrapper" style="position:relative;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);background:#000;">
+        <!-- Thumbnail overlay (shown before play) -->
+        <div id="video-thumbnail" style="position:relative;cursor:pointer;aspect-ratio:16/9;" onclick="loadYoutubeVideo()">
+          <img src="https://img.youtube.com/vi/0KHRu9sq7Ko/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/0KHRu9sq7Ko/hqdefault.jpg'"
+               alt="Video Profil MPP Kota Pontianak"
+               style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <!-- Dark overlay -->
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.5) 100%);"></div>
+          <!-- Play button -->
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;">
+            <div id="play-btn" style="width:88px;height:88px;background:linear-gradient(135deg,#4ade80,#22c55e);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 16px rgba(74,222,128,.2),0 20px 60px rgba(74,222,128,.4);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer;"
+              onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 0 0 20px rgba(74,222,128,.25),0 24px 80px rgba(74,222,128,.5)'"
+              onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 16px rgba(74,222,128,.2),0 20px 60px rgba(74,222,128,.4)'">
+              <i class="fa-solid fa-play" style="color:#052e16;font-size:2rem;margin-left:6px;"></i>
+            </div>
+            <div style="text-align:center;">
+              <div style="color:#fff;font-size:1.1rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.6);">Putar Video Profil</div>
+              <div style="color:rgba(255,255,255,.65);font-size:.82rem;font-weight:500;margin-top:.2rem;">Mal Pelayanan Publik Kota Pontianak</div>
+            </div>
+          </div>
+          <!-- YouTube logo watermark -->
+          <div style="position:absolute;bottom:16px;right:20px;display:flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.55);border-radius:8px;padding:.4rem .8rem;">
+            <i class="fa-brands fa-youtube" style="color:#ff0000;font-size:1.1rem;"></i>
+            <span style="color:rgba(255,255,255,.8);font-size:.7rem;font-weight:600;">YouTube</span>
+          </div>
+        </div>
+        <!-- iframe placeholder (hidden until clicked) -->
+        <div id="video-iframe-container" style="display:none;aspect-ratio:16/9;"></div>
+      </div>
+
+      <!-- Info bar below video -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;">
+          <div style="width:40px;height:40px;background:rgba(74,222,128,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fa-solid fa-building-columns" style="color:#4ade80;"></i>
+          </div>
+          <div>
+            <div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.1rem;">Tentang</div>
+            <div style="font-size:.88rem;font-weight:700;color:#fff;">Profil Resmi MPP Pontianak</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;">
+          <div style="width:40px;height:40px;background:rgba(74,222,128,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fa-brands fa-youtube" style="color:#ff4444;"></i>
+          </div>
+          <div>
+            <div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.1rem;">Sumber</div>
+            <div style="font-size:.88rem;font-weight:700;color:#fff;">Kanal YouTube Resmi</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;">
+          <div style="width:40px;height:40px;background:rgba(74,222,128,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fa-solid fa-circle-play" style="color:#4ade80;"></i>
+          </div>
+          <div>
+            <div style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.1rem;">Aksi</div>
+            <a href="https://www.youtube.com/watch?v=0KHRu9sq7Ko" target="_blank" style="font-size:.88rem;font-weight:700;color:#4ade80;text-decoration:none;">Buka di YouTube →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function loadYoutubeVideo(){
+  document.getElementById('video-thumbnail').style.display='none';
+  const c=document.getElementById('video-iframe-container');
+  c.style.display='block';
+  c.innerHTML='<iframe width="100%" height="100%" style="position:absolute;inset:0;width:100%;height:100%;border:none;" src="https://www.youtube.com/embed/0KHRu9sq7Ko?autoplay=1&rel=0&modestbranding=1" title="Video Profil MPP Kota Pontianak" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen></iframe>';
+  document.getElementById('video-iframe-container').style.position='relative';
+}
+</script>
+
+<!-- LAYANAN -->
+<section id="layanan" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Layanan Kami</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Pilih Jenis Layanan</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Kami menyediakan berbagai kategori layanan yang dirancang untuk memenuhi kebutuhan seluruh lapisan masyarakat.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="service-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+        <div class="h-2 bg-gradient-to-r from-yellow-400 to-orange-400"></div>
+        <div class="p-8">
+          <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-5"><i class="fa-solid fa-star text-yellow-500 text-2xl"></i></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Layanan Prioritas</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">Diperuntukkan bagi pemohon yang memerlukan penanganan langsung atau bagi investor dengan nilai investasi di atas Rp 10 Miliar.</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-yellow-500 text-xs"></i> Penanganan Cepat &amp; Prioritas</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-yellow-500 text-xs"></i> Ruang Tunggu Eksklusif</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-yellow-500 text-xs"></i> Konsultasi Bisnis Langsung</li>
+          </ul>
+          <a href="#" class="inline-flex items-center gap-2 text-yellow-600 font-semibold text-sm">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card bg-gradient-to-br from-primary-700 to-primary-600 rounded-2xl overflow-hidden shadow-xl cursor-pointer transform -translate-y-4">
+        <div class="h-2 bg-green-300"></div>
+        <div class="p-8">
+          <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-5"><i class="fa-solid fa-user-check text-white text-2xl"></i></div>
+          <h3 class="text-xl font-bold text-white mb-3">Layanan Mandiri</h3>
+          <span class="inline-block bg-green-300 text-primary-900 text-xs font-bold px-3 py-1 rounded-full mb-3">Paling Populer</span>
+          <p class="text-white/80 text-sm leading-relaxed mb-6">Layanan umum bagi masyarakat luas yang dapat dilakukan secara mandiri dengan berbagai kemudahan akses.</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-white/90"><i class="fa-solid fa-circle-check text-green-300 text-xs"></i> Antrian Digital</li>
+            <li class="flex items-center gap-2 text-sm text-white/90"><i class="fa-solid fa-circle-check text-green-300 text-xs"></i> Layanan Self-Service Kiosk</li>
+            <li class="flex items-center gap-2 text-sm text-white/90"><i class="fa-solid fa-circle-check text-green-300 text-xs"></i> Berbagai Jenis Dokumen</li>
+          </ul>
+          <a href="#" class="inline-flex items-center gap-2 text-green-300 font-semibold text-sm">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer">
+        <div class="h-2 bg-gradient-to-r from-blue-400 to-purple-400"></div>
+        <div class="p-8">
+          <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-5"><i class="fa-solid fa-wheelchair text-blue-500 text-2xl"></i></div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Layanan Disabilitas</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">Layanan khusus bagi masyarakat penyandang disabilitas, lansia, ibu hamil, dan kelompok rentan lainnya.</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-blue-500 text-xs"></i> Jalur Khusus &amp; Ramp</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-blue-500 text-xs"></i> Petugas Pendamping</li>
+            <li class="flex items-center gap-2 text-sm text-gray-600"><i class="fa-solid fa-circle-check text-blue-500 text-xs"></i> Kursi Roda Tersedia</li>
+          </ul>
+          <a href="#" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASILITAS -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Fasilitas MPP Kota Pontianak</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Berbagai Fasilitas Terbaik</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Fasilitas lengkap untuk menunjang pelayanan yang prima dan kenyamanan seluruh pengunjung.</p>
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+      <button onclick="selectFacility('lounge',this)" class="facility-tab active flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-couch text-2xl text-primary-600"></i><span class="text-xs font-semibold">Lounge</span></button>
+      <button onclick="selectFacility('laktasi',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-baby text-2xl text-primary-600"></i><span class="text-xs font-semibold">Ruang Laktasi</span></button>
+      <button onclick="selectFacility('disabilitas',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-wheelchair text-2xl text-primary-600"></i><span class="text-xs font-semibold">Disabilitas</span></button>
+      <button onclick="selectFacility('bermain',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-gamepad text-2xl text-primary-600"></i><span class="text-xs font-semibold">Ruang Bermain</span></button>
+      <button onclick="selectFacility('ibadah',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-mosque text-2xl text-primary-600"></i><span class="text-xs font-semibold">Ruang Ibadah</span></button>
+      <button onclick="selectFacility('cafetaria',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-utensils text-2xl text-primary-600"></i><span class="text-xs font-semibold">Cafetaria</span></button>
+      <button onclick="selectFacility('parkir',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-car text-2xl text-primary-600"></i><span class="text-xs font-semibold">Area Parkir</span></button>
+      <button onclick="selectFacility('pengaduan',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-comment-dots text-2xl text-primary-600"></i><span class="text-xs font-semibold">Ruang Pengaduan</span></button>
+      <button onclick="selectFacility('perpustakaan',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-book text-2xl text-primary-600"></i><span class="text-xs font-semibold">Perpustakaan</span></button>
+      <button onclick="selectFacility('selfservice',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-desktop text-2xl text-primary-600"></i><span class="text-xs font-semibold">Self-Service</span></button>
+      <button onclick="selectFacility('kesehatan',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-kit-medical text-2xl text-primary-600"></i><span class="text-xs font-semibold">Kesehatan</span></button>
+      <button onclick="selectFacility('merokok',this)" class="facility-tab flex flex-col items-center gap-2 p-4 rounded-xl text-center"><i class="facility-icon fa-solid fa-smoking text-2xl text-primary-600"></i><span class="text-xs font-semibold">Area Merokok</span></button>
+    </div>
+    <div class="bg-gradient-to-br from-primary-50 to-green-50 rounded-2xl p-8 border border-primary-100">
+      <div class="flex items-start gap-6">
+        <div class="w-20 h-20 bg-primary-100 rounded-2xl flex items-center justify-center shrink-0">
+          <i id="facility-icon-big" class="fa-solid fa-couch text-primary-600 text-3xl"></i>
+        </div>
+        <div>
+          <h3 id="facility-title" class="text-2xl font-bold text-gray-900 mb-3">Fasilitas Lounge</h3>
+          <p id="facility-desc" class="text-gray-600 leading-relaxed">Area lounge yang nyaman dengan kursi ergonomis, AC, dan TV untuk pengunjung menunggu antrean. Dilengkapi WiFi gratis dan colokan listrik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATISTIK -->
+<section id="statistik" class="py-20 bg-gradient-to-br from-primary-800 to-navy-900 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-10 right-10 w-80 h-80 border border-white rounded-full"></div>
+    <div class="absolute bottom-10 left-10 w-60 h-60 border border-white rounded-full"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-green-300 font-bold text-sm uppercase tracking-widest mb-3 block">Data Real-Time</span>
+      <h2 class="text-4xl font-extrabold text-white mb-4">Statistik Pengunjung MPP Kota Pontianak</h2>
+      <p class="text-white/60 max-w-2xl mx-auto">Data pengunjung yang diperbarui secara berkala untuk memastikan transparansi layanan kami.</p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+      <div class="glass-card p-8 text-center hover:scale-105 transition duration-300">
+        <div class="text-4xl lg:text-5xl font-black text-green-300 stat-number" data-target="247">0</div>
+        <div class="text-white/70 text-sm mt-2 font-medium">Rata-rata Per Hari</div>
+        <div class="w-full mt-3 progress-bar"><div class="progress-fill" data-width="40%"></div></div>
+      </div>
+      <div class="glass-card p-8 text-center hover:scale-105 transition duration-300">
+        <div class="text-4xl lg:text-5xl font-black text-green-300 stat-number" data-target="840">0</div>
+        <div class="text-white/70 text-sm mt-2 font-medium">Rata-rata Per Minggu</div>
+        <div class="w-full mt-3 progress-bar"><div class="progress-fill" data-width="60%"></div></div>
+      </div>
+      <div class="glass-card p-8 text-center hover:scale-105 transition duration-300">
+        <div class="text-4xl lg:text-5xl font-black text-green-300 stat-number" data-target="4201">0</div>
+        <div class="text-white/70 text-sm mt-2 font-medium">Rata-rata Per Bulan</div>
+        <div class="w-full mt-3 progress-bar"><div class="progress-fill" data-width="75%"></div></div>
+      </div>
+      <div class="glass-card p-8 text-center hover:scale-105 transition duration-300">
+        <div class="text-4xl lg:text-5xl font-black text-green-300 stat-number" data-target="33389">0</div>
+        <div class="text-white/70 text-sm mt-2 font-medium">Rata-rata Per Tahun</div>
+        <div class="w-full mt-3 progress-bar"><div class="progress-fill" data-width="90%"></div></div>
+      </div>
+    </div>
+    <div class="glass-card p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-white font-bold text-lg">Grafik Pengunjung</h3>
+        <div class="flex gap-2">
+          <button class="chart-btn bg-green-400 text-primary-900 text-xs font-bold px-4 py-1.5 rounded-full" onclick="setChart('mingguan',this)">Mingguan</button>
+          <button class="chart-btn bg-white/10 text-white/70 text-xs font-bold px-4 py-1.5 rounded-full hover:bg-white/20 transition" onclick="setChart('bulanan',this)">Bulanan</button>
+        </div>
+      </div>
+      <div id="chart-container" class="flex items-end gap-3 h-40 justify-around"></div>
+      <div class="flex justify-around mt-2" id="chart-labels"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTANSI -->
+<section id="instansi" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-14 gap-4 scroll-reveal">
+      <div>
+        <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Instansi Tergabung</span>
+        <h2 class="text-4xl font-extrabold text-gray-900">Mitra Layanan Kami</h2>
+        <p class="text-gray-500 mt-2 max-w-lg">Berbagai instansi pemerintah, BUMN/BUMD, dan swasta yang tergabung dalam satu atap MPP.</p>
+      </div>
+      <a href="#" class="shrink-0 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+        <i class="fa-solid fa-building"></i> Lihat Semua Instansi
+      </a>
+    </div>
+    <div class="carousel-wrapper">
+      <div class="slider-track" id="agency-slider">
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-landmark text-blue-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">DPMPTSP</h4>
+          <p class="text-gray-500 text-xs mb-4">Dinas Penanaman Modal &amp; PTSP</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">45</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">23</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-mosque text-green-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">Kemenag</h4>
+          <p class="text-gray-500 text-xs mb-4">Kementerian Agama</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">11</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">8</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-coins text-red-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">KPP Pratama</h4>
+          <p class="text-gray-500 text-xs mb-4">Kantor Pelayanan Pajak</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">18</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">12</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-id-card text-indigo-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">Disdukcapil</h4>
+          <p class="text-gray-500 text-xs mb-4">Dinas Kependudukan &amp; Capil</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">22</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">15</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-file-contract text-teal-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">BPN / ATR</h4>
+          <p class="text-gray-500 text-xs mb-4">Badan Pertanahan Nasional</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">14</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">10</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+        <div class="agency-card bg-white rounded-2xl p-6 shadow-md min-w-[260px] cursor-pointer">
+          <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-hospital text-purple-600 text-2xl"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">BPJS Kesehatan</h4>
+          <p class="text-gray-500 text-xs mb-4">Badan Penyelenggara Jaminan Sosial</p>
+          <div class="flex gap-4">
+            <div class="text-center"><div class="text-xl font-black text-primary-600">9</div><div class="text-xs text-gray-400">Layanan</div></div>
+            <div class="text-center"><div class="text-xl font-black text-primary-600">6</div><div class="text-xs text-gray-400">Loket</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center gap-3 mt-6">
+      <button onclick="slideAgency(-1)" class="w-10 h-10 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition flex items-center justify-center"><i class="fa-solid fa-chevron-left"></i></button>
+      <button onclick="slideAgency(1)" class="w-10 h-10 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition flex items-center justify-center"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- SKM -->
+<section id="skm" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Survei &amp; Penilaian</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Kepuasan &amp; Integritas</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Kami berkomitmen untuk terus meningkatkan kualitas pelayanan berdasarkan masukan nyata dari masyarakat.</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="bg-gradient-to-br from-green-50 to-primary-50 rounded-2xl p-8 border border-primary-100 hover:shadow-xl transition">
+        <div class="flex items-start gap-5 mb-6">
+          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-face-smile text-primary-600 text-3xl"></i></div>
+          <div><h3 class="text-xl font-bold text-gray-900">Survei Kepuasan Masyarakat</h3><p class="text-gray-500 text-sm">Indeks Kepuasan Masyarakat (IKM)</p></div>
+        </div>
+        <div class="flex items-center gap-6 mb-6">
+          <div class="text-center"><div class="text-6xl font-black text-primary-600">90</div><div class="text-xl font-black text-primary-400">.12</div></div>
+          <div>
+            <div class="bg-green-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-2">Sangat Baik</div>
+            <div class="text-gray-500 text-sm">dari <strong>11.885</strong> responden</div>
+            <div class="flex mt-2">
+              <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+              <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i>
+              <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-3 mb-6">
+          <div><div class="flex justify-between text-sm mb-1"><span class="text-gray-600">Sangat Puas</span><span class="font-semibold">68%</span></div><div class="progress-bar"><div class="progress-fill" data-width="68%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span class="text-gray-600">Puas</span><span class="font-semibold">24%</span></div><div class="progress-bar"><div class="progress-fill" data-width="24%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span class="text-gray-600">Cukup Puas</span><span class="font-semibold">6%</span></div><div class="progress-bar"><div class="progress-fill" data-width="6%"></div></div></div>
+          <div><div class="flex justify-between text-sm mb-1"><span class="text-gray-600">Tidak Puas</span><span class="font-semibold">2%</span></div><div class="progress-bar"><div class="progress-fill" data-width="2%"></div></div></div>
+        </div>
+        <a href="#" class="w-full flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 rounded-xl transition"><i class="fa-solid fa-clipboard-check"></i> Ikuti Survey SKM</a>
+      </div>
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 hover:shadow-xl transition">
+        <div class="flex items-start gap-5 mb-6">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-shield-halved text-blue-600 text-3xl"></i></div>
+          <div><h3 class="text-xl font-bold text-gray-900">Survei Penilaian Integritas</h3><p class="text-gray-500 text-sm">Anti-Korupsi &amp; Penilaian Integritas (SPI)</p></div>
+        </div>
+        <div class="bg-white/60 rounded-xl p-6 mb-6 text-center">
+          <div class="text-5xl font-black text-blue-600 mb-2">85.7</div>
+          <div class="bg-blue-500 text-white text-sm font-bold px-4 py-1 rounded-full inline-block mb-3">Integritas Tinggi</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Penilaian integritas berbasis TRUST untuk memastikan tidak ada pungutan liar dalam proses pelayanan.</p>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center gap-3 bg-white/60 rounded-xl p-4">
+            <i class="fa-solid fa-circle-check text-blue-500 text-xl"></i>
+            <div><div class="font-semibold text-gray-800 text-sm">Bebas Pungli</div><div class="text-gray-500 text-xs">Zero tolerance terhadap pungutan liar</div></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white/60 rounded-xl p-4">
+            <i class="fa-solid fa-circle-check text-blue-500 text-xl"></i>
+            <div><div class="font-semibold text-gray-800 text-sm">Transparansi Proses</div><div class="text-gray-500 text-xs">Status layanan dapat dipantau secara real-time</div></div>
+          </div>
+        </div>
+        <a href="#" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition"><i class="fa-solid fa-clipboard-list"></i> Ikuti Survey SPI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGADUAN -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Layanan Pengaduan</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Sampaikan Keluhan Anda</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Kami mendengar dan merespons setiap masukan untuk terus meningkatkan kualitas pelayanan.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="complaint-card bg-white rounded-2xl p-6 text-center cursor-pointer">
+        <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-flag text-red-500 text-2xl"></i></div>
+        <h4 class="font-bold text-gray-900 mb-2">SP4N LAPOR!</h4>
+        <p class="text-gray-500 text-sm mb-5">Portal pengaduan nasional terintegrasi untuk seluruh instansi pemerintah.</p>
+        <a href="https://www.lapor.go.id" target="_blank" class="w-full inline-block bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-2.5 rounded-xl text-sm transition">Buka Portal</a>
+      </div>
+      <div class="complaint-card bg-white rounded-2xl p-6 text-center cursor-pointer">
+        <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-comment-medical text-primary-600 text-2xl"></i></div>
+        <h4 class="font-bold text-gray-900 mb-2">Sidumas</h4>
+        <p class="text-gray-500 text-sm mb-5">Sistem pengaduan khusus daerah untuk masukan dan laporan lokal.</p>
+        <a href="#" class="w-full inline-block bg-primary-50 hover:bg-primary-100 text-primary-600 font-semibold py-2.5 rounded-xl text-sm transition">Buka Sidumas</a>
+      </div>
+      <div class="complaint-card bg-white rounded-2xl p-6 text-center cursor-pointer">
+        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-headset text-green-600 text-2xl"></i></div>
+        <h4 class="font-bold text-gray-900 mb-2">Contact Center</h4>
+        <p class="text-gray-500 text-sm mb-3">Hubungi tim kami langsung melalui telepon untuk bantuan segera.</p>
+        <div class="text-2xl font-black text-green-600 mb-3">150-273</div>
+        <a href="tel:150273" class="w-full inline-block bg-green-50 hover:bg-green-100 text-green-600 font-semibold py-2.5 rounded-xl text-sm transition"><i class="fa-solid fa-phone"></i> Hubungi Sekarang</a>
+      </div>
+      <div class="complaint-card bg-white rounded-2xl p-6 text-center cursor-pointer">
+        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-video text-blue-600 text-2xl"></i></div>
+        <h4 class="font-bold text-gray-900 mb-2">Virtual Helpdesk</h4>
+        <p class="text-gray-500 text-sm mb-3">Konsultasi video langsung dengan petugas melalui Google Meet.</p>
+        <div class="text-xs text-gray-400 mb-3">Senin&ndash;Jumat: 09.00&ndash;15.00</div>
+        <a href="#" class="w-full inline-block bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 rounded-xl text-sm transition"><i class="fa-brands fa-google"></i> Buka Meet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR PELAYANAN -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Panduan Layanan</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Alur Pelayanan</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Ikuti langkah mudah berikut untuk mendapatkan layanan di MPP.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-200"><span class="text-white font-black text-xl">1</span></div>
+        <h4 class="font-bold text-gray-900 mb-2">Datang ke MPP</h4>
+        <p class="text-gray-500 text-sm">Kunjungi Gedung MPP Kota Pontianak pada jam operasional pelayanan.</p>
+      </div>
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary-200"><span class="text-white font-black text-xl">2</span></div>
+        <h4 class="font-bold text-gray-900 mb-2">Siapkan Berkas</h4>
+        <p class="text-gray-500 text-sm">Lengkapi dokumen sesuai jenis layanan yang diperlukan.</p>
+      </div>
+      <div class="p-6 text-center">
+        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-green-100"><i class="fa-solid fa-check text-white text-2xl"></i></div>
+        <h4 class="font-bold text-gray-900 mb-2">Terima Dokumen</h4>
+        <p class="text-gray-500 text-sm">Proses selesai! Terima dokumen atau notifikasi hasil layanan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="py-20 bg-gradient-to-b from-primary-50 to-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Ulasan Masyarakat</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Apa Kata Mereka?</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Kepuasan masyarakat adalah motivasi terbesar kami untuk terus berinovasi.</p>
+    </div>
+    <div class="testimonial-slider pb-4" id="testimonial-slider">
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+        <div class="flex mb-3"><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">"Pelayanan sangat cepat dan petugas ramah. Surat keterangan saya selesai dalam 30 menit. Sangat memuaskan!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-700">A</div>
+          <div><div class="font-semibold text-gray-800 text-sm">Ahmad S.</div><div class="text-gray-400 text-xs">Surat Keterangan &middot; Sangat Puas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+        <div class="flex mb-3"><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">"Proses pengurusan izin usaha sangat mudah dan cepat. Petugasnya profesional dan gedungnya sangat nyaman. Tidak perlu bolak-balik!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-700">R</div>
+          <div><div class="font-semibold text-gray-800 text-sm">Rizki P.</div><div class="text-gray-400 text-xs">Izin Usaha (NIB) &middot; Sangat Puas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+        <div class="flex mb-3"><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star-half-stroke text-yellow-400 text-sm"></i></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">"Fasilitasnya sangat lengkap. Ada ruang bermain anak, jadi anak saya bisa bermain sementara saya urus dokumen."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-700">S</div>
+          <div><div class="font-semibold text-gray-800 text-sm">Sari W.</div><div class="text-gray-400 text-xs">Dokumen Kependudukan &middot; Puas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+        <div class="flex mb-3"><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">"Fasilitas disabilitasnya sangat memperhatikan kebutuhan saya. Kursi roda tersedia dan petugas sangat membantu."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-700">B</div>
+          <div><div class="font-semibold text-gray-800 text-sm">Budi H.</div><div class="text-gray-400 text-xs">Layanan Disabilitas &middot; Sangat Puas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md border border-gray-100">
+        <div class="flex mb-3"><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i><i class="fa-solid fa-star text-yellow-400 text-sm"></i></div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">"Proses perpanjangan izin usaha jauh lebih mudah dibanding sebelumnya. MPP benar-benar solusi pelayanan modern!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center font-bold text-orange-700">M</div>
+          <div><div class="font-semibold text-gray-800 text-sm">Maya T.</div><div class="text-gray-400 text-xs">Perpanjangan Izin &middot; Sangat Puas</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center gap-2 mt-6" id="testi-dots"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 scroll-reveal">
+      <span class="text-primary-600 font-bold text-sm uppercase tracking-widest mb-3 block">Bantuan</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Pertanyaan Umum</h2>
+      <p class="text-gray-500">Temukan jawaban atas pertanyaan yang paling sering ditanyakan.</p>
+    </div>
+    <div class="space-y-4" id="faq-container"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gradient-to-br from-primary-900 to-navy-900 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid lg:grid-cols-4 gap-10">
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="assets/images/logo.png" alt="Logo MPP Kota Pontianak" class="h-14 w-auto" style="filter:brightness(0) invert(1);" />
+          <div>
+            <div class="font-extrabold text-white text-sm leading-tight">Mal Pelayanan Publik</div>
+            <div class="text-green-300 text-xs font-bold tracking-wider uppercase leading-tight">Kota Pontianak</div>
+          </div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed mb-6">Satu atap, banyak layanan. Kami berkomitmen memberikan pelayanan publik terpadu yang transparan, cepat, dan berkualitas.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition"><i class="fa-brands fa-instagram text-sm"></i></a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition"><i class="fa-brands fa-facebook text-sm"></i></a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition"><i class="fa-brands fa-twitter text-sm"></i></a>
+          <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-xl flex items-center justify-center transition"><i class="fa-brands fa-youtube text-sm"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-bold text-base mb-5 text-green-300">Jam Pelayanan</h5>
+        <div class="space-y-3 text-white/70 text-sm">
+          <div class="flex justify-between"><span>Senin &ndash; Kamis</span><span class="font-semibold text-white">08.00 &ndash; 15.30</span></div>
+          <div class="flex justify-between"><span>Jumat</span><span class="font-semibold text-white">08.00 &ndash; 11.30</span></div>
+          <div class="flex justify-between"><span>Sabtu &ndash; Minggu</span><span class="text-red-400 font-semibold">Tutup</span></div>
+          <div class="mt-4 bg-green-400/10 rounded-xl p-3 border border-green-400/20">
+            <div class="flex items-center gap-2 text-green-300 text-xs"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>Sedang buka hari ini</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-bold text-base mb-5 text-green-300">Navigasi</h5>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li><a href="#beranda" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Beranda</a></li>
+          <li><a href="#profil" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Profil MPP</a></li>
+          <li><a href="#layanan" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Jenis Layanan</a></li>
+          <li><a href="#instansi" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Instansi Tergabung</a></li>
+          <li><a href="#statistik" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Statistik</a></li>
+          <li><a href="#skm" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Survei SKM</a></li>
+          <li><a href="#faq" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold text-base mb-5 text-green-300">Kontak Kami</h5>
+        <div class="space-y-4 text-white/70 text-sm">
+          <div class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-green-400 mt-0.5 shrink-0"></i><span>Jl. Alianyang No.1, Sungai Bangkong, Kec. Pontianak Kota, Kota Pontianak, Kalimantan Barat</span></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-green-400 shrink-0"></i><a href="tel:0561-736061" class="hover:text-white transition">(0561) 736061</a></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-green-400 shrink-0"></i><a href="mailto:mpp@pontianakkota.go.id" class="hover:text-white transition">mpp@pontianakkota.go.id</a></div>
+          <div class="flex items-center gap-3"><i class="fa-solid fa-globe text-green-400 shrink-0"></i><a href="#" class="hover:text-white transition">mpp.pontianakkota.go.id</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-white/50 text-sm">
+      <div>&copy; 2025 MPP Kota Pontianak &ndash; Pemerintah Kota Pontianak. Hak cipta dilindungi undang-undang.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-white transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  class="fixed bottom-8 right-8 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-xl shadow-lg flex items-center justify-center transition opacity-0 pointer-events-none z-50">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script>
+const navbar=document.getElementById("navbar");
+window.addEventListener("scroll",()=>{
+  navbar.classList.toggle("scrolled",window.scrollY>60);
+  const btn=document.getElementById("back-to-top");
+  btn.style.opacity=window.scrollY>400?"1":"0";
+  btn.style.pointerEvents=window.scrollY>400?"auto":"none";
+});
+function toggleMenu(){
+  document.getElementById("mobile-menu").classList.toggle("open");
+  const i=document.getElementById("menu-icon");
+  i.classList.toggle("fa-bars");i.classList.toggle("fa-xmark");
+}
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");});
+},{threshold:.1});
+document.querySelectorAll(".scroll-reveal").forEach(el=>revealObs.observe(el));
+function animateCount(el,target,duration=2000){
+  let start=0;const step=target/(duration/16);
+  const t=setInterval(()=>{
+    start+=step;if(start>=target){start=target;clearInterval(t);}
+    el.textContent=Math.floor(start).toLocaleString("id-ID");
+  },16);
+}
+const statObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!e.target.dataset.animated){
+      e.target.dataset.animated=true;animateCount(e.target,parseInt(e.target.dataset.target));
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll(".stat-number").forEach(el=>statObs.observe(el));
+setTimeout(()=>{
+  animateCount(document.getElementById("hero-stat-1"),24,1500);
+  animateCount(document.getElementById("hero-stat-2"),186,1800);
+  animateCount(document.getElementById("hero-stat-3"),95,1600);
+},800);
+const progressObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll(".progress-fill").forEach(bar=>{
+        bar.style.width=bar.getAttribute("data-width")||"0%";
+      });
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll("section").forEach(s=>progressObs.observe(s));
+const facilityData={
+  lounge:{icon:"fa-couch",title:"Fasilitas Lounge",desc:"Area lounge yang nyaman dengan kursi ergonomis, AC, dan TV untuk pengunjung menunggu antrean. Dilengkapi WiFi gratis dan colokan listrik."},
+  laktasi:{icon:"fa-baby",title:"Ruang Laktasi",desc:"Ruang khusus ibu menyusui yang bersih, nyaman, dan privat dilengkapi dengan kursi menyusui, wastafel, dan peralatan pendukung."},
+  disabilitas:{icon:"fa-wheelchair",title:"Fasilitas Disabilitas",desc:"Jalur khusus (ramp), lift aksesibel, toilet disabilitas, kursi roda, dan petugas pendamping tersedia untuk penyandang disabilitas."},
+  bermain:{icon:"fa-gamepad",title:"Ruang Bermain Anak",desc:"Area bermain aman dan menyenangkan untuk anak-anak dengan berbagai mainan edukatif, dilengkapi pengawas dan AC."},
+  ibadah:{icon:"fa-mosque",title:"Ruang Ibadah",desc:"Mushola yang bersih dan nyaman dengan perlengkapan ibadah tersedia (sajadah, mukena, Al-Quran) untuk kebutuhan spiritual pengunjung."},
+  cafetaria:{icon:"fa-utensils",title:"Cafetaria",desc:"Cafetaria dengan berbagai pilihan makanan dan minuman sehat dengan harga terjangkau, area makan yang bersih dan nyaman."},
+  parkir:{icon:"fa-car",title:"Area Parkir",desc:"Lahan parkir luas dengan kapasitas kendaraan roda dua dan roda empat yang memadai, dilengkapi CCTV dan petugas keamanan."},
+  pengaduan:{icon:"fa-comment-dots",title:"Ruang Pengaduan",desc:"Ruang khusus pengaduan masyarakat yang terjamin kerahasiaannya, dengan petugas terlatih siap menindaklanjuti keluhan."},
+  perpustakaan:{icon:"fa-book",title:"Perpustakaan Mini",desc:"Koleksi buku, brosur layanan, dan majalah tersedia untuk pengunjung yang sedang menunggu antrean di area perpustakaan mini."},
+  selfservice:{icon:"fa-desktop",title:"Layanan Mandiri (Kiosk)",desc:"Terminal layanan mandiri berbasis digital untuk pengisian formulir, pengecekan status dokumen, dan daftar antrean secara otomatis."},
+  kesehatan:{icon:"fa-kit-medical",title:"Protokol Kesehatan",desc:"Fasilitas cuci tangan, hand sanitizer, masker cadangan tersedia. Suhu pengunjung diukur di pintu masuk untuk menjaga kesehatan bersama."},
+  merokok:{icon:"fa-smoking",title:"Area Merokok",desc:"Area merokok khusus di luar gedung yang telah ditentukan agar kenyamanan seluruh pengunjung dapat terjaga dengan baik."}
+};
+function selectFacility(key,btn){
+  document.querySelectorAll(".facility-tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");const d=facilityData[key];
+  document.getElementById("facility-icon-big").className="fa-solid "+d.icon+" text-primary-600 text-3xl";
+  document.getElementById("facility-title").textContent=d.title;
+  document.getElementById("facility-desc").textContent=d.desc;
+}
+const weeklyData=[{label:"Sen",val:65},{label:"Sel",val:80},{label:"Rab",val:72},{label:"Kam",val:90},{label:"Jum",val:55},{label:"Sab",val:0},{label:"Min",val:0}];
+const monthlyData=[{label:"Jan",val:70},{label:"Feb",val:60},{label:"Mar",val:85},{label:"Apr",val:75},{label:"Mei",val:90},{label:"Jun",val:80},{label:"Jul",val:95},{label:"Agu",val:88},{label:"Sep",val:78},{label:"Okt",val:82},{label:"Nov",val:70},{label:"Des",val:65}];
+function renderChart(data){
+  const container=document.getElementById("chart-container"),labels=document.getElementById("chart-labels");
+  container.innerHTML="";labels.innerHTML="";
+  data.forEach(d=>{
+    const bar=document.createElement("div");
+    bar.className="flex-1 rounded-t-lg transition-all duration-700 relative group";
+    bar.style.height=d.val+"%";
+    bar.style.background=d.val>0?"linear-gradient(180deg,#4ade80,#22c55e)":"rgba(255,255,255,.1)";
+    bar.style.minHeight=d.val>0?"8px":"4px";
+    const tip=document.createElement("div");
+    tip.className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white text-primary-700 text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap";
+    tip.textContent=d.val>0?d.val+"%":"Tutup";
+    bar.appendChild(tip);container.appendChild(bar);
+    const lbl=document.createElement("div");lbl.className="flex-1 text-center text-xs text-white/50 mt-2";lbl.textContent=d.label;labels.appendChild(lbl);
+  });
+}
+function setChart(type,btn){
+  document.querySelectorAll(".chart-btn").forEach(b=>{b.classList.remove("bg-green-400","text-primary-900");b.classList.add("bg-white/10","text-white/70");});
+  btn.classList.add("bg-green-400","text-primary-900");btn.classList.remove("bg-white/10","text-white/70");
+  renderChart(type==="mingguan"?weeklyData:monthlyData);
+}
+const chartObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){renderChart(weeklyData);chartObs.disconnect();}},{threshold:.3});
+chartObs.observe(document.getElementById("statistik"));
+let agencyOffset=0;
+function slideAgency(dir){
+  const slider=document.getElementById("agency-slider"),cardWidth=276;
+  const maxOffset=-(slider.children.length-3)*cardWidth;
+  agencyOffset=Math.max(maxOffset,Math.min(0,agencyOffset+dir*-cardWidth));
+  slider.style.transform="translateX("+agencyOffset+"px)";
+}
+const faqs=[
+  {q:"Apa itu MPP Kota Pontianak?",a:"MPP Kota Pontianak adalah Mal Pelayanan Publik yang diselenggarakan oleh Pemerintah Kota Pontianak sebagai tempat berlangsungnya berbagai layanan publik dari instansi pemerintah pusat, pemerintah daerah, BUMN, BUMD, dan swasta secara terpadu dalam satu atap untuk melayani warga Kota Pontianak."},
+  {q:"Apa saja instansi yang tergabung di MPP Kota Pontianak?",a:"MPP Kota Pontianak menggabungkan berbagai instansi meliputi DPMPTSP, Kemenag, KPP Pratama Pontianak, Disdukcapil Kota Pontianak, BPN/ATR, BPJS Kesehatan, BPJS Ketenagakerjaan, dan masih banyak instansi lainnya."},
+  {q:"Apakah MPP Kota Pontianak melayani masyarakat penyandang disabilitas?",a:"Ya, MPP Kota Pontianak menyediakan layanan khusus bagi penyandang disabilitas termasuk jalur ramp, lift aksesibel, toilet khusus, kursi roda, dan petugas pendamping yang siap membantu."},
+  {q:"Bagaimana cara menyampaikan pengaduan atau keluhan?",a:"Pengaduan dapat disampaikan melalui portal SP4N LAPOR!, sistem Sidumas lokal, Contact Center di 150-273, atau Virtual Helpdesk melalui Google Meet pada jam operasional."},
+  {q:"Apakah ada biaya untuk menggunakan layanan MPP?",a:"Layanan di MPP pada umumnya bebas biaya (gratis). Biaya hanya dikenakan sesuai ketentuan resmi untuk jenis layanan tertentu, dengan tarif yang transparan dan tidak ada pungutan liar."}
+];
+const faqContainer=document.getElementById("faq-container");
+faqs.forEach((f,i)=>{
+  const div=document.createElement("div");div.className="bg-white rounded-2xl border border-gray-200 overflow-hidden";
+  div.innerHTML='<button onclick="toggleFaq('+i+')" class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition"><span class="font-semibold text-gray-900 text-sm md:text-base pr-4">'+f.q+'</span><i class="fa-solid fa-chevron-down text-primary-600 shrink-0 transition-transform duration-300" id="faq-icon-'+i+'"></i></button><div class="overflow-hidden transition-all duration-300" style="max-height:0" id="faq-answer-'+i+'"><div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">'+f.a+'</div></div>';
+  faqContainer.appendChild(div);
+});
+function toggleFaq(i){
+  const answer=document.getElementById("faq-answer-"+i),icon=document.getElementById("faq-icon-"+i);
+  const isOpen=answer.style.maxHeight!=="0px"&&answer.style.maxHeight!=="";
+  faqs.forEach((_,j)=>{document.getElementById("faq-answer-"+j).style.maxHeight="0px";document.getElementById("faq-icon-"+j).style.transform="rotate(0deg)";});
+  if(!isOpen){answer.style.maxHeight=answer.scrollHeight+"px";icon.style.transform="rotate(180deg)";}
+}
+const testiSlider=document.getElementById("testimonial-slider"),dotContainer=document.getElementById("testi-dots");
+for(let i=0;i<5;i++){
+  const dot=document.createElement("button");dot.className="w-2 h-2 rounded-full bg-primary-200 transition-all";
+  dot.onclick=()=>{testiSlider.scrollLeft=i*336;};dotContainer.appendChild(dot);
+}
+testiSlider.addEventListener("scroll",()=>{
+  const dots=dotContainer.querySelectorAll("button"),idx=Math.round(testiSlider.scrollLeft/336);
+  dots.forEach((d,i)=>{d.className=i===idx?"w-6 h-2 rounded-full bg-primary-600 transition-all":"w-2 h-2 rounded-full bg-primary-200 transition-all";});
+});
+dotContainer.querySelectorAll("button")[0].className="w-6 h-2 rounded-full bg-primary-600 transition-all";
+</script>
+</body>
+</html>
